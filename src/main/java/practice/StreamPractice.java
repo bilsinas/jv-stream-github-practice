@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
-import model.Cat;
 import model.Candidate;
+import model.Cat;
 import model.Person;
 import model.Person.Sex;
 
