@@ -22,15 +22,9 @@ public class StreamPractice {
     }
 
     public Double getOddNumsAverage(List<Integer> numbers) {
-        List<Integer> tempNumbers = new java.util.ArrayList<>(numbers);
-        for (int i = 0; i < tempNumbers.size(); i++) {
-            if (i % 2 != 0) {
-                tempNumbers.set(i, tempNumbers.get(i) - 1);
-            }
-        }
-        return tempNumbers.stream()
+        return java.util.stream.IntStream.range(0, numbers.size())
+                .map(i -> (i % 2 != 0) ? numbers.get(i) - 1 : numbers.get(i))
                 .filter(n -> n % 2 != 0)
-                .mapToDouble(Integer::doubleValue)
                 .average()
                 .orElseThrow(() -> new NoSuchElementException("No odd numbers found."));
     }
