@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import model.Candidate;
 
 public class CandidateValidator implements Predicate<Candidate> {
+
     @Override
     public boolean test(Candidate candidate) {
         if (candidate.getAge() < 35
