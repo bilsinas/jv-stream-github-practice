@@ -1,14 +1,17 @@
 package practice;
 
-import model.Candidate;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import model.Candidate;
+
 public class CandidateValidator implements Predicate<Candidate> {
     @Override
     public boolean test(Candidate candidate) {
-        if (candidate.getAge() < 35 || !candidate.isAllowedToVote() || !"Ukrainian".equals(candidate.getNationality())) {
+        if (candidate.getAge() < 35
+                || !candidate.isAllowedToVote()
+                || !"Ukrainian".equals(candidate.getNationality())) {
             return false;
         }
 
