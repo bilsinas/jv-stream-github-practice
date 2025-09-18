@@ -3,7 +3,6 @@ package practice;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import model.Candidate;
 
 public class CandidateValidator implements Predicate<Candidate> {
