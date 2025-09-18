@@ -1,18 +1,13 @@
 package practice;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+import model.Cat;
 import model.Candidate;
 import model.Person;
-import model.Cat;
 import model.Person.Sex;
-import java.util.stream.Collectors;
-import java.util.Arrays;
-import java.util.OptionalDouble;
-import java.util.NoSuchElementException;
-import java.util.Comparator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class StreamPractice {
     public int findMinEvenNumber(List<String> numbers) {
@@ -22,7 +17,8 @@ public class StreamPractice {
                 .mapToInt(Integer::parseInt)
                 .filter(n -> n % 2 == 0)
                 .min()
-                .orElseThrow(() -> new RuntimeException("Can't get min value from list: " + numbers));
+                .orElseThrow(() -> new RuntimeException("Can't get min value from list: "
+                        + numbers));
     }
 
     public Double getOddNumsAverage(List<Integer> numbers) {
@@ -49,8 +45,8 @@ public class StreamPractice {
                                           int maleToAge, List<Person> peopleList) {
         return peopleList.stream()
                 .filter(p -> p.getAge() >= fromAge)
-                .filter(p -> (p.getSex() == Sex.MAN && p.getAge() <= maleToAge) ||
-                        (p.getSex() == Sex.WOMAN && p.getAge() <= femaleToAge))
+                .filter(p -> (p.getSex() == Sex.MAN && p.getAge() <= maleToAge)
+                        || (p.getSex() == Sex.WOMAN && p.getAge() <= femaleToAge))
                 .collect(Collectors.toList());
     }
 
